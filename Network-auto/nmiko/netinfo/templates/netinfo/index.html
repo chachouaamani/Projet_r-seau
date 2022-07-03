@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <style>
+        form{
+            float:left
+        }
+        /* input{
+            display: block;
+        } */
+        .login input{
+            display:block;
+        }
+        .network input {
+            display:block
+        }
+        .login{
+            float:left;
+        }
+        .network{
+            float:left;
+        }
+        .btns{
+            display:block;
+            float:right;
+        }
+
+        ::placeholder{
+            padding:10px;
+            background-color: red;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Network Automation</title>
+</head>
+<body style="background-color:#f8f8f8;  font-family: 'Open Sans', sans-serif; margin:20px">
+<h1 style="text-align:center">Network Automation (OSPF)</h1>
+<p>Please enter your username and password:</p>
+<div>
+<form method="POST"> {% csrf_token %}
+    <div class="login" style="margin:10px;">
+        {{ form }}
+    </div>
+    <!-- <input name='do' type="submit" value="Connect" /> -->
+    <div class="btns" style="margin-right:10px">
+        <!-- <input style="background-color: #3E77B6; border:none; border-radius: 5px; padding:10px; cursor:pointer; color:#f8f8f8" name='do' type="submit" value="EnableOspf1"/>
+        <input style="background-color: #3E77B6; border:none; border-radius: 5px; padding:10px; cursor:pointer; color:#f8f8f8" name='do' type="submit" value="EnabelOspf 2"/> -->
+    </div>
+    <div class="network" style="margin: 10px; display: inline-block;">
+        {{ network }}    
+        <input style="margin-top:10px;background-color: #E8A0BF; border:none; border-radius: 5px; padding:10px; cursor:pointer; color:#f8f8f8" name='do' type="submit" value="Add network" />
+    </div>
+    <div>
+        <div class="btns"  >
+            <input style="margin:10px;background-color: #E8A0BF; border:none; border-radius: 5px; padding:10px; cursor:pointer; display: inline-block;color:#f8f8f8" name='do' type="submit" value="Show neighbors for router 1" />
+            <input style="margin:10px;background-color: #E8A0BF; border:none; border-radius: 5px; padding:10px; cursor:pointer; display: inline-block;color:#f8f8f8" name='do' type="submit" value="Show neighbors for router 2" />
+        </div>
+        <div class="btns" >
+            <input style="margin:10px;background-color: #E8A0BF; border:none; border-radius: 5px; padding:10px; cursor:pointer; 
+            display: inline-block;color:#f8f8f8" name='do' type="submit" value="Show ip routes for router 1" />
+            <input style="margin:10px;background-color: #E8A0BF; border:none; border-radius: 5px; padding:10px; cursor:pointer; 
+            display: inline-block; color:#f8f8f8" name='do' type="submit" value="Show ip routes for router 2" />
+        </div>
+    </div>
+    </form>
+    <pre>{{ output }}</pre>
+    <pre>{{ neighbor1 }}</pre>
+    <pre>{{ neighbor2 }}</pre>
+<!-- <form action="enableOspf1" method="GET"> 
+    <input type="hidden" value="{{conn1}}" />
+       
+</form>
+<form action="enableOspf2" method="POST"> {% csrf_token %}
+   
+</form>
+    <form action="addNetwork" method="POST"> {% csrf_token %}
+        
+        
+        </form>
+    <form action="showNeighbors" method="POST"> {% csrf_token %}
+        
+        
+    </form>
+    <form action="showIpRoute" method="POST"> {% csrf_token %}
+        
+    </form> -->
+    </div>
+</body>
+</html>  
